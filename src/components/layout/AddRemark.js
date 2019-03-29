@@ -73,8 +73,12 @@ class Addremark extends Component {
                 <input
                   className="fas fa-pencil-alt"
                   //  hidden
+<<<<<<< HEAD
                   type="Submit"
                   value="Add"
+=======
+                  type="Add"
+>>>>>>> 89ebbe5727bfb8f6bbd2fb4bca56affabe47d68b
                 />
               </form>
             </div>
