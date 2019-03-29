@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Contacts from "./components/contacts/Contacts";
 import AddContact from "./components/contacts/AddContact";
 import EditContact from "./components/contacts/EditContact";
@@ -19,7 +19,7 @@ class App extends Component {
     return (
       // we wrapped our main application or everything in the Provider so we have access to it
       <Provider>
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
           <div className="App">
             <Header greeting="Hello, Admin :)" />
             <div className="container">
