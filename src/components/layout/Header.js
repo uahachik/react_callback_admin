@@ -6,17 +6,6 @@ import TimeDisplay from "./TimeDisplay";
 const Header = props => {
   const { greeting } = props;
 
-  const data = () => {
-    var today = new Date();
-    const y = today.getFullYear();
-    let m = today.getMonth() + 1;
-    m <= 9 ? (m = "0" + m) : (m = "" + m);
-    const d = today.getDate();
-    const data = d + ":" + m + ":" + y;
-    return data;
-  };
-  const watch = data();
-
   return (
     <nav
       className="navbar navbar-expand-sm navbar-dark

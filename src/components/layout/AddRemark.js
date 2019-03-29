@@ -65,7 +65,7 @@ class Addremark extends Component {
                 <input style={{width: "520px", padding: "5px", marginLeft: "8px", border: "1px solid #ccccccc"}}
                   type="text"                  
                   name="remark"
-                  placeholder="No remarks yet"
+                  placeholder="Add a remark"
                   value={remark}
                   defaultValue={remark}
                   ref={this.remarkInput}
@@ -73,7 +73,8 @@ class Addremark extends Component {
                 <input
                   className="fas fa-pencil-alt"
                   //  hidden
-                  type="submit"
+                  type="Submit"
+                  value="Add"
                 />
               </form>
             </div>

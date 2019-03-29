@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 
 class TimeDisplay extends Component {
-  state = { time: new Date().toLocaleTimeString() };
+  state = { time: new Date().toLocaleTimeString('en-US', { hour12: false }) };
 
   tick() {
     this.setState({
-      time: new Date().toLocaleTimeString()
+      time: new Date().toLocaleTimeString('en-US', { hour12: false })
     });
   }
 
