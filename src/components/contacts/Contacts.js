@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Contact from "./Contact";
-
 // any component that we want to use the context with, we bring in the Comsumer
 import { Consumer } from "../../context";
 

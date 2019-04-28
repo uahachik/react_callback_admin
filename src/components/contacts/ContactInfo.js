@@ -36,8 +36,8 @@ class ContactInfo extends Component {
 
         {showEnvelope ? (
           <React.Fragment>
-            <React.Fragment>{email}</React.Fragment>
-            <div className="bg-light">{other}</div>
+            <React.Fragment>E-mail: {email}</React.Fragment>
+            <div className="bg-light">Message: <i>{other}</i></div>
           </React.Fragment>
         ) : null}
       </React.Fragment>

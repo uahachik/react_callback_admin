@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Consumer } from "../../context";
 import PropTypes from "prop-types";
 import ContactInfo from "./ContactInfo";
-import AddRemark from "../layout/AddRemark";
+import AddRemark from "./AddRemark";
 import axios from "axios";
 import "../../css/InlineHelpTips.css";
 
@@ -29,13 +29,13 @@ class Contact extends Component {
           .join(" ")
       ) {
         /*{
-              // Delete Contact from Context State
+              // Delete Contact from Context State & Database without 'async-awit'
                 axios
                   .delete(`https://jsonplaceholder.typicode.com/users/${id}`)
                   .then(res => dispatch({ type: "DELETE_CONTACT", payload: id }));
               }*/
         /*{
-              // Delete Contact from Database
+              // Delete Contact from Context State & Database
                 await axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`);
                 dispatch({ type: "DELETE_CONTACT", payload: id });
               }*/
@@ -72,11 +72,12 @@ class Contact extends Component {
               <h4>
                 <div className="float-left">{name} </div>
 
-                {/* CSS help-tip above showContactInfo */}
+            {/* CSS help-tip above showContactInfo */}
                 <span id="about" className="help-tip">
                   <i>About Contact</i>
                 </span>
 
+            {/* 'Show Contact Info' Marker */}
                 <i
                   className="fas fa-address-book"
                   style={{ position: "absolute", right: "50rem", top: "1rem" }}
@@ -87,7 +88,7 @@ class Contact extends Component {
                   }}
                 />
               
-
+            {/* 'Delete' Marker */}
                 <i
                   className="fas fa-times float-right mr-1 mt-1 text-danger"
                   style={{ backgroundColor: "#ffffff" }}
@@ -96,11 +97,12 @@ class Contact extends Component {
 
                 {/* <span className="bg-warning float-right mr-5 pb-1">:)</span>  */}
 
+            {/* 'Change Contact' Marker to Link */}
                 <Link to={`contact/edit/${id}`}>
                   <i className="fas fa-pencil-alt float-right mr-5 mt-1" />
                 </Link>
 
-                {/* !!! enable form input*/}
+            {/* 'Show Add Remark' Marker to Input */}
                   <i className="fas fa-bell text-warning float-right mr-5 mt-1" 
                   onClick={() => {
                     this.setState({
@@ -109,16 +111,20 @@ class Contact extends Component {
                   }}
                   />
 
-                {/* !!! form input */}
+            {/* Component AddRemark */}
                 {showAddRemark ? (                
                 <AddRemark contact={this.props.contact} />
                 ) : null}
 
+            {/* Remark into Contact Component */}
                 <div className="btn float-right w-50 mr-4 pt-1"
-                     style={{backgroundColor: '#ffffff', height: '30px', border: "1px solid #e2e2e2"}}>{remark} </div>
+                     style={{backgroundColor: '#ffffff', height: '30px', border: "1px solid #e2e2e2"}}>
+                  {remark} 
+                </div>
 
               </h4>
               
+            {/* Component ContactInfo */}
               {showContactInfo ? (
                 <ul className="list-group">
                   <li className="list-group-item">Phone: {phone}</li>
