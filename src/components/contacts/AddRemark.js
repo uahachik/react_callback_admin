@@ -11,6 +11,7 @@ class AddRemark extends Component {
   // fetching data from JsonAPI
   async componentDidMount() {
     const { id } = this.props.contact;
+    // const { id } = this.props.match.params;
     const res = await axios.get(
       `https://jsonplaceholder.typicode.com/users/${id}`
     );
@@ -19,7 +20,8 @@ class AddRemark extends Component {
       name: contact.name,
       phone: contact.phone,
       email: contact.email,
-      other: contact.other
+      other: contact.other,
+      remark: contact.remark
     });
   }
 
@@ -93,7 +95,7 @@ class AddRemark extends Component {
 
 const remarkStyle = {
   position: "absolute",
-  right: "360px",
+  right: "250px",
   top: "-32px",
   // padding: "10"
 };

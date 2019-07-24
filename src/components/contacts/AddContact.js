@@ -67,7 +67,7 @@ class AddContact extends Component {
       errors: {}
     });
 
-    // rediraction
+    // redirection
     this.props.history.push("/");
   };
 

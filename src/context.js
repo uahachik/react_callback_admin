@@ -26,7 +26,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         // a "payload" that we're going to send
-        //  which will be entire contact whith "name, phone, other, id"
+        //  which will be entire contact with "name, phone, other, id"
         contacts: [action.payload, ...state.contacts]
       };
     case "UPDATE_CONTACT":

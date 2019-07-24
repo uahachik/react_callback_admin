@@ -19,6 +19,7 @@ class Contacts extends Component {
               {contacts.map(contact => (
                 // Contacts is created in the Provider but we are consuming it here
                 <Contact key={contact.id} contact={contact} />
+                // <Contact contact={contact} />
               ))}
             </React.Fragment>
           );

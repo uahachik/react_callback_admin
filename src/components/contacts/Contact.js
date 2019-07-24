@@ -73,54 +73,54 @@ class Contact extends Component {
                 <div className="float-left">{name} </div>
 
             {/* CSS help-tip above showContactInfo */}
-                <span id="about" className="help-tip">
-                  <i>About Contact</i>
-                </span>
+              <span id="about" className="help-tip">
+                <i>About Contact</i>
+              </span>
 
             {/* 'Show Contact Info' Marker */}
-                <i
-                  className="fas fa-address-book"
-                  style={{ position: "absolute", right: "50rem", top: "1rem" }}
-                  onClick={() => {
-                    this.setState({
-                      showContactInfo: !this.state.showContactInfo
-                    });
-                  }}
-                />
+              <i
+                className="fas fa-address-book"
+                style={{ position: "absolute", right: "50rem", top: "1rem" }}
+                onClick={() => {
+                  this.setState({
+                    showContactInfo: !this.state.showContactInfo
+                  });
+                }}
+              />
               
             {/* 'Delete' Marker */}
-                <i
-                  className="fas fa-times float-right mr-1 mt-1 text-danger"
-                  style={{ backgroundColor: "#ffffff" }}
-                  onClick={this.onDeleteClick.bind(this, id, name, dispatch)}
-                />
+              <i
+                className="fas fa-times float-right mr-1 mt-1 text-danger"
+                style={{ backgroundColor: "#ffffff" }}
+                onClick={this.onDeleteClick.bind(this, id, name, dispatch)}
+              />
 
                 {/* <span className="bg-warning float-right mr-5 pb-1">:)</span>  */}
 
             {/* 'Change Contact' Marker to Link */}
-                <Link to={`contact/edit/${id}`}>
-                  <i className="fas fa-pencil-alt float-right mr-5 mt-1" />
-                </Link>
+              <Link to={`contact/edit/${id}`}>
+                <i className="fas fa-pencil-alt float-right mr-5 mt-1" />
+              </Link>
 
             {/* 'Show Add Remark' Marker to Input */}
-                  <i className="fas fa-bell text-warning float-right mr-5 mt-1" 
-                  onClick={() => {
-                    this.setState({
-                      showAddRemark: !this.state.showAddRemark
-                    });
-                  }}
-                  />
+              <i className="fas fa-bell text-warning float-right mr-5 mt-1"
+              onClick={() => {
+                this.setState({
+                  showAddRemark: !this.state.showAddRemark
+                });
+              }}
+              />
 
             {/* Component AddRemark */}
-                {showAddRemark ? (                
-                <AddRemark contact={this.props.contact} />
-                ) : null}
+              {showAddRemark &&
+                (<AddRemark contact={this.props.contact} />)
+              }
 
             {/* Remark into Contact Component */}
-                <div className="btn float-right w-50 mr-4 pt-1"
-                     style={{backgroundColor: '#ffffff', height: '30px', border: "1px solid #e2e2e2"}}>
-                  {remark} 
-                </div>
+              <div className="btn float-right w-50 mr-4 pt-1"
+                   style={{backgroundColor: '#ffffff', height: '30px', border: "1px solid #e2e2e2"}}>
+                {remark}
+              </div>
 
               </h4>
               

@@ -18,6 +18,7 @@ class EditContact extends Component {
     phone: "",
     email: "",
     other: "",
+    remark: "",
     errors: {}
   };
 
@@ -34,7 +35,8 @@ class EditContact extends Component {
       name: contact.name,
       phone: contact.phone,
       email: contact.email,
-      other: contact.other
+      other: contact.other,
+      remark: contact.remark
     });
   }
 
@@ -42,7 +44,7 @@ class EditContact extends Component {
     e.preventDefault();
 
     // get values from the state
-    const { name, phone, email, other } = this.state;
+    const { name, phone, email, other, remark } = this.state;
 
     const { id } = this.props.match.params;
 
@@ -61,7 +63,8 @@ class EditContact extends Component {
       name,
       phone,
       email,
-      other
+      other,
+      remark
     };
 
     const res = await axios.put(
@@ -76,6 +79,7 @@ class EditContact extends Component {
       phone: "",
       email: "",
       other: "",
+      remark: "",
       errors: {}
     });
 
@@ -86,7 +90,7 @@ class EditContact extends Component {
   onChange = e => this.setState({ [e.target.name]: e.target.value });
 
   render() {
-    const { name, phone, other, email, errors } = this.state;
+    const { name, phone, other, email, errors, remark } = this.state;
 
     return (
       <Consumer>
@@ -128,6 +132,12 @@ class EditContact extends Component {
                     name="other"
                     value={other}
                     onChange={this.onChange}
+                  />
+                  <TextareaTagGroup
+                      label="Remark"
+                      name="remark"
+                      value={remark}
+                      onChange={this.onChange}
                   />
                   <input
                     type="submit"

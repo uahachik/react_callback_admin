@@ -10,12 +10,12 @@ class TimeDisplay extends Component {
   }
 
   componentDidMount() {
-    /* this.intervalID =  */ setInterval(() => this.tick(), 1000);
+    this.timerID =  setInterval(() => this.tick(), 1000);
   }
 
-  /*   componentWillUnmount() {
-    clearInterval(this.intervalID);
-  } */
+     componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
 
   render() {
     const str = () => {
