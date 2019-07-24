@@ -2,7 +2,7 @@
   "name": "callback_admin",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://uahachik.github.io/react-callback_admin",
+  "homepage": "https://uahachik.github.io/react_callback_admin",
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "~4.1.2",
