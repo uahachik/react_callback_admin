@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { Consumer } from "../../context";
-import PropTypes from "prop-types";
-import ContactInfo from "./ContactInfo";
-import AddRemark from "./AddRemark";
-import axios from "axios";
-import "../../css/InlineHelpTips.css";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { Consumer } from '../../context';
+import PropTypes from 'prop-types';
+import ContactInfo from './ContactInfo';
+import AddRemark from './AddRemark';
+import axios from 'axios';
+import '../../css/hover.css';
 
 class Contact extends Component {
   state = {
@@ -14,9 +14,9 @@ class Contact extends Component {
   };
 
   onDeleteClick = async (id, name, dispatch) => {
-    // 
-    if (window.confirm("Do you want to Delete this Contact?")) {
-      var person = prompt("Please enter contact name.");
+    //
+    if (window.confirm('Do you want to Delete this Contact?')) {
+      var person = prompt('Please enter contact name.');
 
       if (person === null) {
         person = null;
@@ -24,9 +24,9 @@ class Contact extends Component {
         name ===
         person
           .toLowerCase()
-          .split(" ")
+          .split(' ')
           .map(word => word.charAt(0).toUpperCase() + word.substring(1))
-          .join(" ")
+          .join(' ')
       ) {
         /*{
               // Delete Contact from Context State & Database without 'async-awit'
@@ -44,15 +44,15 @@ class Contact extends Component {
           await axios.delete(
             `https://jsonplaceholder.typicode.com/users/${id}`
           );
-          dispatch({ type: "DELETE_CONTACT", payload: id });
+          dispatch({ type: 'DELETE_CONTACT', payload: id });
         } catch (e) {
           await axios.delete(
             `https://jsonplaceholder.typicode.com/users/${id}`
           );
-          dispatch({ type: "DELETE_CONTACT", payload: id });
+          dispatch({ type: 'DELETE_CONTACT', payload: id });
         }
       } else {
-        alert("The name does not match.");
+        alert('The name does not match.');
       }
     }
   };
@@ -72,59 +72,63 @@ class Contact extends Component {
               <h4>
                 <div className="float-left">{name} </div>
 
-            {/* CSS help-tip above showContactInfo */}
-              <span id="about" className="help-tip">
-                <i>About Contact</i>
-              </span>
+                {/* CSS help-tip above showContactInfo */}
+                <span className="help-tip">
+                  <i>About Contact</i>
+                </span>
 
-            {/* 'Show Contact Info' Marker */}
-              <i
-                className="fas fa-address-book"
-                style={{ position: "absolute", right: "50rem", top: "1rem" }}
-                onClick={() => {
-                  this.setState({
-                    showContactInfo: !this.state.showContactInfo
-                  });
-                }}
-              />
-              
-            {/* 'Delete' Marker */}
-              <i
-                className="fas fa-times float-right mr-1 mt-1 text-danger"
-                style={{ backgroundColor: "#ffffff" }}
-                onClick={this.onDeleteClick.bind(this, id, name, dispatch)}
-              />
+                {/* 'Show Contact Info' Marker */}
+                <i
+                  className="fas fa-address-book"
+                  style={{ position: 'absolute', right: '50rem', top: '1rem' }}
+                  onClick={() => {
+                    this.setState({
+                      showContactInfo: !this.state.showContactInfo
+                    });
+                  }}
+                />
+
+                {/* 'Delete' Marker */}
+                <i
+                  className="fas fa-times float-right mr-1 mt-1 text-danger"
+                  style={{ backgroundColor: '#ffffff' }}
+                  onClick={this.onDeleteClick.bind(this, id, name, dispatch)}
+                />
 
                 {/* <span className="bg-warning float-right mr-5 pb-1">:)</span>  */}
 
-            {/* 'Change Contact' Marker to Link */}
-              <Link to={`contact/edit/${id}`}>
-                <i className="fas fa-pencil-alt float-right mr-5 mt-1" />
-              </Link>
+                {/* 'Change Contact' Marker to Link */}
+                <Link to={`contact/edit/${id}`}>
+                  <i className="fas fa-pencil-alt float-right mr-5 mt-1" />
+                </Link>
 
-            {/* 'Show Add Remark' Marker to Input */}
-              <i className="fas fa-bell text-warning float-right mr-5 mt-1"
-              onClick={() => {
-                this.setState({
-                  showAddRemark: !this.state.showAddRemark
-                });
-              }}
-              />
+                {/* 'Show Add Remark' Marker to Input */}
+                <i
+                  className="fas fa-bell text-warning float-right mr-5 mt-1"
+                  onClick={() => {
+                    this.setState({
+                      showAddRemark: !this.state.showAddRemark
+                    });
+                  }}
+                />
 
-            {/* Component AddRemark */}
-              {showAddRemark &&
-                (<AddRemark contact={this.props.contact} />)
-              }
+                {/* Component AddRemark */}
+                {showAddRemark && <AddRemark contact={this.props.contact} />}
 
-            {/* Remark into Contact Component */}
-              <div className="btn float-right w-50 mr-4 pt-1"
-                   style={{backgroundColor: '#ffffff', height: '30px', border: "1px solid #e2e2e2"}}>
-                {remark}
-              </div>
-
+                {/* Remark into Contact Component */}
+                <div
+                  className="btn float-right w-50 mr-4 pt-1"
+                  style={{
+                    backgroundColor: '#ffffff',
+                    height: '30px',
+                    border: '1px solid #e2e2e2'
+                  }}
+                >
+                  {remark}
+                </div>
               </h4>
-              
-            {/* Component ContactInfo */}
+
+              {/* Component ContactInfo */}
               {showContactInfo ? (
                 <ul className="list-group">
                   <li className="list-group-item">Phone: {phone}</li>
@@ -133,7 +137,6 @@ class Contact extends Component {
                   </li>
                 </ul>
               ) : null}
-            
             </div>
           );
         }}

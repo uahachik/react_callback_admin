@@ -32,7 +32,7 @@ TextareaTagGroup.propTypes = {
 };
 
 TextareaTagGroup.defaultProps = {
-  placeholder: "You can leave here your message, address etc."
+  placeholder: "You can leave here your message, address, etc."
 };
 
 export default TextareaTagGroup;
