@@ -5,7 +5,7 @@
   "homepage": "https://uahachik.github.io/react_callback_admin",
   "dependencies": {
     "axios": "^0.18.0",
-    "bootstrap": "~4.1.2",
+    "bootstrap": "~4.3.1",
     "classnames": "^2.2.6",
     "gh-pages": "^2.0.1",
     "jquery": "^3.3.1",
